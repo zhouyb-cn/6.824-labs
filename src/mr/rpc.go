@@ -22,8 +22,26 @@ type ExampleReply struct {
 	Y int
 }
 
-// Add your RPC definitions here.
+type DistributeTaskArgs struct {
+}
 
+type DistributeTaskReply struct {
+	TaskType  string `json:"task_type"`
+	Index     int    `json:"index"`
+	Task      *Task  `json:"task"`
+	ReduceNum int    `json:"reduce_num"`
+}
+
+type TaskDoneArgs struct {
+	TaskType    string
+	Index       int
+	ReduceFiles map[int]string
+}
+
+type TaskDoneReply struct {
+}
+
+// Add your RPC definitions here.
 
 // Cook up a unique-ish UNIX-domain socket name
 // in /var/tmp, for the coordinator.
